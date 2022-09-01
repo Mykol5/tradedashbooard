@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lte/css/superboard.css">
+    <title>Super Admin Board</title>
+</head>
+
+<header>
+    <p><h2>ADMIN DASHBOARD</h2></p>
+</header>
+            <br>
+<body>
+
+<p><h4>You are viewing this because you are a superuser</h4></p> 
+
+<main>
+<h3>Pending Withdrawals</h3>
+</main>
+
+<ul>
+<li>
+   <a href="#">{{ i.ref }}</a> 
+</li>
+</ul>
+
+<p>No pending Withdrawal requests</p>
+
+<h3>Pending Verifications</h3>
+
+<ul>
+<li>
+    <a href="#">{{ i.email }}</a> 
+</li>
+</ul>
+
+<p>No pending Document Verification</p>
+
+        <br><br>
+
+You dont have access to view this page
+
+</body>
+</html>
