@@ -14,33 +14,54 @@
             <br>
 <body>
 
-<p><h4>You are viewing this because you are a superuser</h4></p> 
+    {% if user.is_superuser %}
+    
+    <p><h4>You are viewing this because you are a superuser</h4></p> 
+    
+    <main>
+    <h3>Pending Withdrawals</h3>
+    {% if withdraw %}
+    </main>
 
-<main>
-<h3>Pending Withdrawals</h3>
-</main>
+    <ul>
+        {% for i in withdraw %}
+    <li>
+    <a href="{% url 'alph:superwit' i.ref %}">{{ i.ref }}</a> 
+    </li>
+        {% endfor %}
 
-<ul>
-<li>
-   <a href="#">{{ i.ref }}</a> 
-</li>
-</ul>
+    </ul>
 
-<p>No pending Withdrawal requests</p>
+    {% else %}
+    <p>No pending Withdrawal requests</p>
 
-<h3>Pending Verifications</h3>
+    {% endif %}
 
-<ul>
-<li>
-    <a href="#">{{ i.email }}</a> 
-</li>
-</ul>
+    <h3>Pending Verifications</h3>
 
-<p>No pending Document Verification</p>
+    {% if document %}
+    <ul>
+        {% for i in document %}
+    <li>
+        <a href="{% url 'alph:superver' i.email %}">{{ i.email }}</a> 
+    </li>
+    {% endfor %}
 
-        <br><br>
 
-You dont have access to view this page
+    </ul>
+
+
+    {% else %}
+    <p>No pending Document Verification</p>
+
+    {% endif %}
+
+            <br><br>
+
+    {% else %}
+    You dont have access to view this page
+
+    {% endif %}
 
 </body>
 </html>
